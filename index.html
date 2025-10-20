@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Hunter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image" href="assets/icono.png">    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #2c1b47, #8b4513);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            cursor: url('assets/puntero.png') 16 16, crosshair;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Fallback si el cursor personalizado no carga */
+        @supports not (cursor: url('assets/puntero.png'), auto) {
+            body {
+                cursor: crosshair;
+            }
+        }
+        
+        .header {
+            background-image: url('assets/fondo.jpg');
+            background-position: center center;
+            background-size: cover;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 230px); /* Ajusta según header y footer */
+            flex: 1;
+        }
+        
+        #canvas {
+            display: block;
+            background: url('assets/background.jpg');
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 32px;
+            color: #ffd700;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid #ff6b00;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+        
+        #title {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #ffffff;
+            background-color: rgba(139, 69, 19, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            z-index: 10;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .student {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .student-id {
+            color: #ffffff;
+            background-color: rgba(139, 69, 19, 0.6);
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1><b>MONSTER HUNTER</b></h1>
+    </div>
+    <div class ="row" style="background-color: #000000;">
+            <div class="col-md-12">
+                <br>
+                <center><p style="color: #ffffff;"><b>INSTRUCCIONES:</b> Selecciona con el puntero las figuras que aparecen para ganar puntos</p></center>
+            </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="gameContainer">
+        <canvas id="canvas"></canvas>
+        <div id="score">💀 Espantos: 0</div>
+        
+    </div>
+    
+    <!-- Audio -->
+    <audio id="backgroundMusic" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Footer -->
+    <footer>
+        <div class="student-info">
+            <span class="student-id">23200823</span>
+            <span class="student">Cruz Monter Sergio Eloy</span>
+            <span class="student-id">23200860</span>
+            <span class="student">Marquez Zempoalteca Judith</span>
+            <span class="student-id">23200904</span>
+            <span class="student">Veloz Pérez Mariana</span>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>
